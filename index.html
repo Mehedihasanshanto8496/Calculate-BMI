@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMI Checker</title>
+
+    <style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #dff6ff, #e8f8f0);
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body > div {
+        width: 420px;
+        background: white;
+        padding: 35px;
+        border-radius: 20px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+        text-align: center;
+    }
+
+    h1 {
+        color: #176b57;
+        font-size: 34px;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+    }
+
+    h3 {
+        color: #777;
+        font-size: 15px;
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+
+    body > div {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    p {
+        margin: 18px 0;
+        font-size: 15px;
+        font-weight: normal;
+        color: #444;
+    }
+
+    input {
+        width: 220px;
+        padding: 12px 15px;
+        margin-left: 8px;
+
+        border: 1px solid #d5d5d5;
+        border-radius: 10px;
+
+        font-size: 15px;
+        outline: none;
+
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border-color: #176b57;
+        box-shadow: 0 0 0 3px rgba(23, 107, 87, 0.12);
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 13px 28px;
+
+        border: none;
+        border-radius: 10px;
+
+        background: #176b57;
+        color: white;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #0f5747;
+        transform: translateY(-2px);
+
+        box-shadow: 0 7px 18px rgba(23, 107, 87, 0.25);
+    }
+
+    #result {
+        min-height: 30px;
+        margin-top: 15px;
+
+        font-size: 22px;
+        font-weight: bold;
+        color: #176b57;
+    }
+
+    @media (max-width: 500px) {
+
+        body > div {
+            width: 90%;
+            padding: 25px 20px;
+        }
+
+        input {
+            width: 100%;
+            margin: 8px 0 0;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div align="center">
+
+        <h1>BMI CHECKER</h1>
+
+        <p>Know your body. Know your BMI</p>
+
+        <div>BMI CALCULATOR</div>
+
+        <p>
+            Weight(KG):
+            <input type="number" id="weight">
+        </p>
+
+        <p>
+            Height(M):
+            <input type="number" id="height">
+        </p>
+
+        <button onclick="calculatebmi()">Calculate BMI</button>
+
+        <p>Result</p>
+
+        <p id="result"></p>
+
+    </div>
+
+
+    <script>
+
+        function calculatebmi(){
+
+            const weight = Number(document.getElementById("weight").value);
+
+            const height = Number(document.getElementById("height").value);
+
+            const bmi = weight / (height * height);
+
+
+            if(bmi < 18.5){
+
+                document.getElementById("result").innerHTML =
+                "BMI: " + bmi.toFixed(2) + "<br>Underweight"; 
+
+            }
+
+            else if(bmi >= 18.5 && bmi < 25){
+
+                document.getElementById("result").innerHTML =
+                "BMI: " + bmi.toFixed(2) + "<br>Fit";
+
+            }
+
+            else if(bmi >= 25 && bmi < 30){
+
+                document.getElementById("result").innerHTML =
+                "BMI: " + bmi.toFixed(2) + "<br>Overweight";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html> 
